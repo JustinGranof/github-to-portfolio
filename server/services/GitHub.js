@@ -7,7 +7,7 @@ class GitHub {
   static async getAccessToken(code) {
     // get environment variables
     let config = useRuntimeConfig();
-    // get user's GitHub access token
+    // fetch the GitHub endpoint
     let res = await $fetch("https://github.com/login/oauth/access_token", {
       method: "POST",
       body: JSON.stringify({
@@ -30,7 +30,7 @@ class GitHub {
    * @returns the user's information
    */
   static async getAuthUser(access_token) {
-    // get the user's information
+    // fetch the GitHub endpoint
     let res = await $fetch("https://api.github.com/user", {
       headers: { Authorization: `Bearer ${access_token}` },
     });
@@ -42,11 +42,19 @@ class GitHub {
     return res;
   }
 
+  /**
+   * Get a user's public repositories
+   * @param {String} username the user's username
+   * @param {String} access_token the user's access token from GitHub API
+   * @returns
+   */
   static async getPublicRepositories({ username, access_token }) {
+    // fetch the GitHub endpoint
     let res = await $fetch(`https://api.github.com/users/${username}/repos`, {
       headers: { Authorization: `Bearer ${access_token}` },
     });
 
+    // check for any errors
     if (res.error)
       throw createError({ statusCode: 500, statusMessage: res.error });
 

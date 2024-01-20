@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative min-h-[100svh] flex flex-col gap-16 items-center pt-[15%]"
+    class="relative min-h-[100svh] flex flex-col gap-16 items-center pt-[25vh]"
   >
     <div class="text-center text-white">
       <h1 class="text-[4rem] font-bold">Kickstart Your Portfolio</h1>

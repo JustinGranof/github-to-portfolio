@@ -9,8 +9,11 @@ export default defineEventHandler(async (event) => {
   if (!code)
     throw createError({ statusCode: 400, statusMessage: "Missing code" });
 
+  // get access token
   let access_token = await GitHub.getAccessToken(code);
+  // get user
   let user = await GitHub.getAuthUser(access_token);
+  // get public repos
   let repos = await GitHub.getPublicRepositories({
     username: user.login,
     access_token,
