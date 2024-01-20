@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  experimental: { componentIslands: true },
+  runtimeConfig: {
+    githubClientSecret: "",
+    public: {
+      githubClientId: "",
+    },
+  },
   devtools: { enabled: true },
   modules: ["@nuxtjs/google-fonts"],
   css: ["~/assets/css/globals.css"],
