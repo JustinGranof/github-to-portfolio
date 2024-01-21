@@ -39,6 +39,5 @@ let { pending, error } = await useLazyAsyncData("getUser", async () => {
   <!-- Loaded -->
   <div v-if="!pending && user && repos">
     <TemplateWrapper />
-    <ExportButton />
   </div>
 </template>
