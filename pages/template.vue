@@ -14,8 +14,10 @@ let { data, pending, error } = await useLazyAsyncData(async () => {
   return res;
 });
 
-user.value = data.value.user;
-repos.value = data.value.repos;
+if (data) {
+  user.value = data.value.user;
+  repos.value = data.value.repos;
+}
 </script>
 
 <template>
@@ -38,7 +40,7 @@ repos.value = data.value.repos;
     <div class="text-red-500 text-center" v-else-if="error">{{ error }}</div>
   </div>
   <!-- Loaded -->
-  <div v-if="!pending && data">
+  <div v-if="!pending && user && repos">
     <TemplateWrapper />
   </div>
 </template>
