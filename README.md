@@ -1,75 +1,9 @@
-# Nuxt 3 Minimal Starter
+# GitHub to Portfolio
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Generate a beautifully designed portfolio template in minutes by connecting your GitHub.
 
-## Setup
+## How it works
 
-Make sure to install the dependencies:
+The user connects their GitHub by logging in via oAuth. The app only requests permission to view public data (profile and repositories). Once logged in, you will be redirected to the this site, where we then leverage the GitHub REST API to fetch your public data.
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Once your data has been retrieved, it is shown in a portfolio template.

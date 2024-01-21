@@ -34,5 +34,14 @@
         </button>
       </NuxtLink>
     </div>
+    <p class="opacity-40 text-sm">
+      Made by
+      <a
+        class="underline"
+        href="https://github.com/JustinGranof"
+        target="_blank"
+        >Justin Granofsky</a
+      >
+    </p>
   </div>
 </template>
