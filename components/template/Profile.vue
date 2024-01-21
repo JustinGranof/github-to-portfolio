@@ -4,8 +4,13 @@ const user = useState("user");
 
 <template>
   <div class="flex justify-between max-h-fit">
-    <div class="flex gap-6 items-center">
-      <img class="rounded-full max-w-[170px]" :src="user.avatar_url" />
+    <div
+      class="text-center sm:text-left w-full flex flex-col sm:flex-row gap-6 items-center"
+    >
+      <NuxtImg
+        class="mx-auto sm:mx-0 rounded-full max-w-[170px]"
+        :src="user.avatar_url"
+      />
       <div class="text-xl font-semibold">
         <p>{{ user.name }}</p>
         <p v-if="user.location || user.company" class="font-normal text-base">

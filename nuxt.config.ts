@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
-  modules: ["@nuxtjs/google-fonts"],
+  modules: ["@nuxtjs/google-fonts", "@nuxt/image"],
   css: ["~/assets/css/globals.css"],
   app: { head: { title: "GitHub To Portfolio" } },
   postcss: {

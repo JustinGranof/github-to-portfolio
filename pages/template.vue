@@ -8,16 +8,13 @@ const repos = useState("repos");
 // get the code from query parameters
 const { code } = useRoute().query;
 
-let { data, pending, error } = await useLazyAsyncData(async () => {
-  if (!code) return testData;
-  let res = await $fetch(`/api/user?code=${code}`);
-  return res;
+let { pending, error } = await useLazyAsyncData("getUser", async () => {
+  let data = null;
+  if (!code) data = testData;
+  else data = await $fetch(`/api/user?code=${code}`);
+  user.value = data.user;
+  repos.value = data.repos;
 });
-
-if (data && data.value) {
-  user.value = data.value.user;
-  repos.value = data.value.repos;
-}
 </script>
 
 <template>
@@ -42,5 +39,6 @@ if (data && data.value) {
   <!-- Loaded -->
   <div v-if="!pending && user && repos">
     <TemplateWrapper />
+    <ExportButton />
   </div>
 </template>
