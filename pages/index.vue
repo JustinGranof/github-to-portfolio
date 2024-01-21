@@ -1,9 +1,11 @@
 <template>
   <div
-    class="relative min-h-[100svh] flex flex-col gap-16 items-center pt-[25vh]"
+    class="px-3 relative min-h-[100svh] flex flex-col gap-16 items-center pt-[25vh]"
   >
     <div class="text-center text-white">
-      <h1 class="text-[4rem] font-bold">Kickstart Your Portfolio</h1>
+      <h1 class="text-4xl md:text-[4rem] font-bold">
+        Kickstart Your Portfolio
+      </h1>
       <h5 class="mt-5 text-xl font-medium">
         The perfect portfolio template generated with your GitHub projects
       </h5>
