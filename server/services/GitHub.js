@@ -50,9 +50,12 @@ class GitHub {
    */
   static async getPublicRepositories({ username, access_token }) {
     // fetch the GitHub endpoint
-    let res = await $fetch(`https://api.github.com/users/${username}/repos`, {
-      headers: { Authorization: `Bearer ${access_token}` },
-    });
+    let res = await $fetch(
+      `https://api.github.com/users/${username}/repos?sort=created&direction=desc`,
+      {
+        headers: { Authorization: `Bearer ${access_token}` },
+      }
+    );
 
     // check for any errors
     if (res.error)

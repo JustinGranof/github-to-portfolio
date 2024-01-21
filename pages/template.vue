@@ -1,10 +1,21 @@
 <script setup>
 import { Loader2 } from "lucide-vue-next";
+import testData from "~/assets/test_data.json";
+
+const user = useState("user");
+const repos = useState("repos");
 
 // get the code from query parameters
 const { code } = useRoute().query;
 
-let { data, pending, error } = await useLazyFetch(`/api/user?code=${code}`);
+let { data, pending, error } = await useLazyAsyncData(async () => {
+  if (!code) return testData;
+  let res = await $fetch(`/api/user?code=${code}`);
+  return res;
+});
+
+user.value = data.value.user;
+repos.value = data.value.repos;
 </script>
 
 <template>
@@ -24,12 +35,10 @@ let { data, pending, error } = await useLazyFetch(`/api/user?code=${code}`);
       </p>
     </div>
     <!-- Error -->
-    <div class="text-red-500 text-center" v-if="error">{{ error }}</div>
+    <div class="text-red-500 text-center" v-else-if="error">{{ error }}</div>
   </div>
   <!-- Loaded -->
   <div v-if="!pending && data">
-    <div>
-      <pre>{{ JSON.stringify(data, null, 4) }}</pre>
-    </div>
+    <TemplateWrapper />
   </div>
 </template>
