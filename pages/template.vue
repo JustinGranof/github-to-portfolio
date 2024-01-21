@@ -8,14 +8,17 @@ const repos = useState("repos");
 // get the code from query parameters
 const { code } = useRoute().query;
 
-let { pending, error } = await useLazyAsyncData("getUser", async () => {
-  let data = null;
-  if (!code) data = testData;
-  else data = await $fetch(`/api/user?code=${code}`);
-  console.log(data);
-  user.value = data.user;
-  repos.value = data.repos;
-});
+let { pending, error } = await useLazyAsyncData(
+  "getUser",
+  async () => {
+    let data = null;
+    if (!code) data = testData;
+    else data = await $fetch(`/api/user?code=${code}`);
+    user.value = data.user;
+    repos.value = data.repos;
+  },
+  { server: false }
+);
 </script>
 
 <template>

@@ -11,16 +11,13 @@ export default defineEventHandler(async (event) => {
 
   // get access token
   let access_token = await GitHub.getAccessToken(code);
-  console.log({ access_token });
   // get user
   let user = await GitHub.getAuthUser(access_token);
-  console.log(user);
   // get public repos
   let repos = await GitHub.getPublicRepositories({
     username: user.login,
     access_token,
   });
-  console.log(repos);
 
   return { user, repos };
 });
