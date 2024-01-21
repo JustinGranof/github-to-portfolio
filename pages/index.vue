@@ -30,7 +30,7 @@
         <button
           class="text-white mt-6 w-full rounded-lg px-5 py-2 border border-white/20"
         >
-          Continue as Guest
+          View Example
         </button>
       </NuxtLink>
     </div>
