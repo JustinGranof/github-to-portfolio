@@ -4,9 +4,9 @@
   >
     <div class="text-center text-white">
       <h1 class="text-4xl md:text-[4rem] font-bold">
-        Kickstart Your Portfolio
+        Visualize your Portfolio
       </h1>
-      <h5 class="mt-5 text-xl font-medium">
+      <h5 class="mt-5 md:mt-8 text-lg md:text-xl font-medium">
         The perfect portfolio template generated with your GitHub projects
       </h5>
     </div>
