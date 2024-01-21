@@ -24,7 +24,7 @@
           />Continue with GitHub
         </button>
       </a>
-      <NuxtLink to="/start">
+      <NuxtLink to="/template">
         <button
           class="text-white mt-6 w-full rounded-lg px-5 py-2 border border-white/20"
         >
