@@ -14,7 +14,7 @@ let { data, pending, error } = await useLazyAsyncData(async () => {
   return res;
 });
 
-if (data) {
+if (data && data.value) {
   user.value = data.value.user;
   repos.value = data.value.repos;
 }
