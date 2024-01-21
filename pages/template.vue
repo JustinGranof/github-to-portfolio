@@ -38,10 +38,19 @@ let { pending, error } = await useLazyAsyncData(
       </p>
     </div>
     <!-- Error -->
-    <div class="text-red-500 text-center" v-else-if="error">{{ error }}</div>
+    <div class="text-lg font-medium text-center" v-else-if="error">
+      <h3>Something went wrong fetching your GitHub 🙁</h3>
+      <NuxtLink to="/"
+        ><button
+          class="text-white mt-6 text-base rounded-lg px-5 py-2 border border-white/20 w-fit"
+        >
+          Return home
+        </button></NuxtLink
+      >
+    </div>
   </div>
   <!-- Loaded -->
-  <div v-if="!pending && user && repos">
+  <div v-if="!pending && !error && user && repos">
     <TemplateWrapper />
   </div>
 </template>
